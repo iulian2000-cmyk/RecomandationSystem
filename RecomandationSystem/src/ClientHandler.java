@@ -91,9 +91,9 @@ class ClientHandler implements Runnable {
         }
         return res;
     }
-    public static  void updateLikes(String song,String genre,String singer){
+    public static  void updateLikes(String song){
         try {
-                String sql = "UPDATE songs SET likes=likes+1 WHERE song_name=" + song + " AND genre=" + genre + " AND singer=" + singer + " ;";
+                String sql = "UPDATE songs SET likes=likes+1 WHERE song_name=" + song + " ;";
                 stmt = conn.createStatement();
                 if(stmt.execute(sql)){
                    System.out.println("ERROR AT UPDATE!");
@@ -115,10 +115,10 @@ class ClientHandler implements Runnable {
             l.printStackTrace();
         }
     }
-    public static void updateLikesMovies(String name,String genre)
+    public static void updateLikesMovies(String name)
     {
         try {
-            String sql = "UPDATE movies SET likes=likes+1 WHERE movie_name=" + name + " AND genre=" + genre + " ;";
+            String sql = "UPDATE movies SET likes=likes+1 WHERE movie_name=" + name + " ;";
             stmt = conn.createStatement();
             if(stmt.execute(sql)){
                 System.out.println("ERROR AT UPDATE!");
@@ -183,6 +183,7 @@ class ClientHandler implements Runnable {
         }
         return res;
     }
+    
     public static String allMovies(){
         String res="";
         try{
@@ -322,16 +323,13 @@ class ClientHandler implements Runnable {
                         if(line.contains("LIKE_MOVIE") && (times == 1)){
                             String [] lineComponentes = line.split(":");
                             String movie_name = lineComponentes[1].split("-")[0];
-                            String genre = lineComponentes[1].split("-")[1];
-                            updateLikesMovies(movie_name,genre);
+                            updateLikesMovies(movie_name);
                             times++;
                         }
                         if(line.contains("LIKE_SONG")&&(times == 1)){
                             String [] components = line.split(":");
                             String song_to_like = components[1].split("-")[0];
-                            String genre = components[1].split("-")[1];
-                            String singer = components[1].split("-")[2];
-                            updateLikes(song_to_like,genre,singer);
+                            updateLikes(song_to_like);
                             times++;
                         }
                         if(line.contains("ALL MOVIES") && (times == 1)){

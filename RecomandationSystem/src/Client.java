@@ -281,7 +281,7 @@ public class Client extends JFrame implements ActionListener
             validate();
             repaint();
         }
-        if(event.getActionCommand().equals("LIKE SONG")){
+        if(event.getActionCommand().equals("LIKE_SONG")){
             msgToServer = "LIKE_SONG:" + "\"" + name_song_text.getText() + "\"" + "-" + "\"" + genre_text_field.getText() + "\"" +
                     "-" + "\"" + singer_text_field.getText() + "\"" ;
             deleteComponents();
@@ -411,7 +411,7 @@ public class Client extends JFrame implements ActionListener
 
             // Submit
             if(event.getActionCommand().equals("LIKE SONG")){
-                JButton like = new JButton("LIKE SONG");
+                JButton like = new JButton("LIKE_SONG");
                 addingComponents(box, name_song, genre_label, singer_label, like);
             }else {
                 JButton submit = new JButton("SUBMIT SONG");
