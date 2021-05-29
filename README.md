@@ -1,6 +1,6 @@
 # RecomandationSystem
 
-## Autori : Isac Iulian-Georgesqlite-jdbc-3.20.1.jar0
+## Autori : Isac Iulian-George 
  *  Proiectul a fost realizat in integralitate de Isac Iulian-George , student in anul II la Facultatea de Informatica din Iasi . Ca si functionalitati aceasta aplicatie iti recomanda o multime de carti/filme/melodii in functie de un numar de like-uri pe care acestea le au .
  *  Functionalitati : 
        * Un utilizator poate insera o melodie care sa fie ascultata de ceilalti utilizatori .
